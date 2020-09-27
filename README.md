@@ -39,7 +39,7 @@ time (start_time timestamp PRIMARY KEY, \
 
 In etl.py, the data will be extracted from the json files in the date folder. There are two groups of datasets, log dataset and music dataset. The data will be transform into pandas dataframe and manipulate into the form which can fit the insert query designed in the sql_queries.py. Here is some explaination about the functions in etl.py
 
-	```
+	
 	def process_song_file(cur, filepath):
 	--input:
 		cur: the cursor, can execute the insert queries
@@ -51,9 +51,8 @@ In etl.py, the data will be extracted from the json files in the date folder. Th
 		The function load the json files in the given filepath and transform them as dataframe. then, 
 		reconstruct the data and using insert queries to load data into database (artists table and 
 		songs table).	
-	```
 
-	```
+
 	def process_log_file(cur, filepath):
 	--input:
 		cur: the cursor, can execute the insert queries
@@ -66,7 +65,7 @@ In etl.py, the data will be extracted from the json files in the date folder. Th
 		need to be filtering out. then, reconstruct the data and using insert queries to load data into database 
 		(time table and users table). select the data from the dimension table, reconstruct the data, and insert 
 		desired data into fact table (songplay table).
-	```
+	
 To run the code, first step is install the postgresSQL and libraries.
 
 Install the postgres following the instructions provided by PostgresSQL website: https://www.postgresql.org/download/linux/ubuntu/
