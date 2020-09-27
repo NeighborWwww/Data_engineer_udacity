@@ -38,6 +38,7 @@ time (start_time timestamp PRIMARY KEY, \
 * etl.py
 
 In etl.py, the data will be extracted from the json files in the date folder. There are two groups of datasets, log dataset and music dataset. The data will be transform into pandas dataframe and manipulate into the form which can fit the insert query designed in the sql_queries.py. Here is some explaination about the functions in etl.py
+
 	```
 	def process_song_file(cur, filepath):
 	--input:
