@@ -17,21 +17,21 @@ There are two source of data need to be pip in. The song data and the user login
 In this files, SQL queries are stored and can be used by etl.py. It including create/drop table queries, insert queries, and select query. The select query is used to pick data from the dimension table to the fact table. The table and its columns label is shown below:
 
 ```
-	songplays(songplay_id SERIAL PRIMARY KEY, \
-							start_time timestamp, user_id varchar NOT NULL, level varchar, song_id varchar, \
-							artist_id varchar, session_id int, location varchar, user_agent varchar)
+songplays(songplay_id SERIAL PRIMARY KEY, \
+						start_time timestamp, user_id varchar NOT NULL, level varchar, song_id varchar, \
+						artist_id varchar, session_id int, location varchar, user_agent varchar)
 
-	users (user_id varchar PRIMARY KEY, \
-						first_name varchar, last_name varchar, gender varchar, level varchar)
+users (user_id varchar PRIMARY KEY, \
+					first_name varchar, last_name varchar, gender varchar, level varchar)
 
-	songs (song_id varchar PRIMARY KEY, \
-						title varchar, artist_id varchar, year int, duration numeric)
+songs (song_id varchar PRIMARY KEY, \
+					title varchar, artist_id varchar, year int, duration numeric)
 
-	artists (artist_id varchar PRIMARY KEY, \
-						name varchar, location varchar, latitude numeric, longtitude numeric)
+artists (artist_id varchar PRIMARY KEY, \
+					name varchar, location varchar, latitude numeric, longtitude numeric)
 
-	time (start_time timestamp PRIMARY KEY, \
-						hour int, day int, week int, month int,year int, weekday int)
+time (start_time timestamp PRIMARY KEY, \
+					hour int, day int, week int, month int,year int, weekday int)
 ```
 
 
