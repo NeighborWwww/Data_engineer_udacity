@@ -13,7 +13,8 @@ Star schema is used in this application. Songplay table is set as the fact table
 There are two source of data need to be pip in. The song data and the user login data are in seperate path. The data in song data has been processed to the songs and artists table. The artistID and songID as a foreign key in the fact table. The data in user login data has been processed to the users and time. The userID and the timestamp as foreign key in the fact table.
 
 * sql_queries.py
-	In this files, SQL queries are stored and can be used by etl.py. It including create/drop table queries, insert queries, and select query. The select query is used to pick data from the dimension table to the fact table. The table and its columns label is shown below:
+
+In this files, SQL queries are stored and can be used by etl.py. It including create/drop table queries, insert queries, and select query. The select query is used to pick data from the dimension table to the fact table. The table and its columns label is shown below:
 
 ```
 	songplays(songplay_id SERIAL PRIMARY KEY, \
@@ -35,7 +36,8 @@ There are two source of data need to be pip in. The song data and the user login
 
 
 * etl.py
-	In etl.py, the data will be extracted from the json files in the date folder. There are two groups of datasets, log dataset and music dataset. The data will be transform into pandas dataframe and manipulate into the form which can fit the insert query designed in the sql_queries.py. Here is some explaination about the functions in etl.py
+
+In etl.py, the data will be extracted from the json files in the date folder. There are two groups of datasets, log dataset and music dataset. The data will be transform into pandas dataframe and manipulate into the form which can fit the insert query designed in the sql_queries.py. Here is some explaination about the functions in etl.py
 	```
 	def process_song_file(cur, filepath):
 	--input:
