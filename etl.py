@@ -14,8 +14,12 @@ def process_song_file(cur, filepath):
     #    song_data.append([df.values[0][7], df.values[0][8], df.values[0][0], df.values[0][9], df.values[0][5]])
     #    artist_data.append([df.values[0][0], df.values[0][4], df.values[0][2], df.values[0][1], df.values[0][3]])
     print(len(df))
-    song_data = pd.DataFrame({'song_id':df['song_id'], 'title':df['title'], 'artist_id':df['artist_id'], 'year':df['year'], 'duration':df['duration']})
-    artist_data = pd.DataFrame({'artist_id':df['artist_id'], 'name':df['artist_name'], 'location':df['artist_location'], 'latitude':df['artist_latitude'], 'longtitude':df['artist_longitude']})
+    song_data = pd.DataFrame({'song_id':df['song_id'], 'title':df['title'], \
+                            'artist_id':df['artist_id'], 'year':df['year'], \
+                            'duration':df['duration']})
+    artist_data = pd.DataFrame({'artist_id':df['artist_id'], 'name':df['artist_name'], \
+                                'location':df['artist_location'], 'latitude':df['artist_latitude'], \
+                                'longtitude':df['artist_longitude']})
 
     for i, row in song_data.iterrows():
 
@@ -40,8 +44,13 @@ def process_log_file(cur, filepath):
     dt = df[df['page'] == 'NextSong']
     t = dt['ts']
     date = pd.to_datetime(t, unit = 'ms')
-    time_df = pd.DataFrame({'start_time':date,'hour':date.dt.hour,'day':date.dt.day,'week':date.dt.week,'month':date.dt.month,'year':date.dt.year,'weekday':date.dt.weekday})
-    user_df = pd.DataFrame({'user_id':df['userId'],'first_name':df['firstName'],'last_name':df['lastName'],'gender':df['gender'],'level':df['level']})
+    time_df = pd.DataFrame({'start_time':date,'hour':date.dt.hour,'day':date.dt.day, \
+                            'week':date.dt.week,'month':date.dt.month,'year':date.dt.year, \
+                            'weekday':date.dt.weekday})
+
+    user_df = pd.DataFrame({'user_id':df['userId'],'first_name':df['firstName'], \
+                            'last_name':df['lastName'],'gender':df['gender'], \
+                            'level':df['level']})
 
 
     for i, row in time_df.iterrows():
@@ -66,7 +75,8 @@ def process_log_file(cur, filepath):
             songid, artistid = None, None
 
         # insert songplay record
-        songplay_data = (pd.to_datetime(row.ts,unit = 'ms'), row.userId, row.level, songid, artistid, row.sessionId)
+        songplay_data = (pd.to_datetime(row.ts,unit = 'ms'), \
+                                        row.userId, row.level, songid, artistid, row.sessionId)
         cur.execute(songplay_table_insert, songplay_data)
 
 
