@@ -1,4 +1,4 @@
-### A music database using postgresSQL
+# A music database using postgresSQL
 
 
 ## 1. Discuss the purpose of this database in the context of the startup, Sparkify, and their analytical goals.
@@ -40,21 +40,28 @@ There are two source of data need to be pip in. The song data and the user login
 	def process_song_file(cur, filepath):
 	--input:
 		cur: the cursor, can execute the insert queries
-		filepath: the filepath of the songfile dataset. the program will load the .json files in this path and load the information into pandas dataframe.
+		filepath: the filepath of the songfile dataset. the program will load the .json files in 
+		this path and load the information into pandas dataframe.
 	--output:
 		void function. all the queries will be execute inside the function.
 	--function:
-		The function load the json files in the given filepath and transform them as dataframe. then, reconstruct the data and using insert queries to load data into database (artists table and songs table).	
+		The function load the json files in the given filepath and transform them as dataframe. then, 
+		reconstruct the data and using insert queries to load data into database (artists table and 
+		songs table).	
 	```
 
 	```
 	def process_log_file(cur, filepath):
 	--input:
 		cur: the cursor, can execute the insert queries
-		filepath: the filepath of the log dataset. the program will load the .json files in this path and load the information into pandas dataframe.
+		filepath: the filepath of the log dataset. the program will load the .json files in this path and
+		load the information into pandas dataframe.
 	--output:
 		void function. all the queries will be execute inside the function.
 	--function:
-		The function load the json files in the given filepath and transform them as dataframe. 'page' = NextSong need to be filtering out. then, reconstruct the data and using insert queries to load data into database (time table and users table). select the data from the dimension table, reconstruct the data, and insert desired data into fact table (songplay table).
+		The function load the json files in the given filepath and transform them as dataframe. 'page' = NextSong 
+		need to be filtering out. then, reconstruct the data and using insert queries to load data into database 
+		(time table and users table). select the data from the dimension table, reconstruct the data, and insert 
+		desired data into fact table (songplay table).
 	```
 
