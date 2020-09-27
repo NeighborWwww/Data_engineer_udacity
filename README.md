@@ -66,4 +66,17 @@ In etl.py, the data will be extracted from the json files in the date folder. Th
 		(time table and users table). select the data from the dimension table, reconstruct the data, and insert 
 		desired data into fact table (songplay table).
 	```
+To run the code, first step is install the postgresSQL and libraries.
 
+Install the postgres following the instructions provided by PostgresSQL website: https://www.postgresql.org/download/linux/ubuntu/
+Required libraries:
+```
+pip install pandas
+pip install psycopg2
+```
+
+Run create_table.py first to create the database and the tables needed. Then, run the etl.py to perform etl process. Using test.ipynb can test the result of etl.
+```
+python create_table.py
+python etl.py
+```
